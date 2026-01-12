@@ -1,2 +1,111 @@
 # Bookbazar
 Online Book Store Website
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bookbazar</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+
+        h1 {
+            text-align: center;
+            padding: 20px;
+            background-color: #2c3e50;
+            color: white;
+            margin: 0;
+        }
+
+        .cards {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding: 30px;
+        }
+
+        .card {
+            width: 260px;
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        .card img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .price {
+            font-weight: bold;
+            margin: 10px 0;
+        }
+
+        .btn {
+            padding: 10px 15px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #1ebe5d;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h1>Bookbazar</h1>
+
+    <div class="cards">
+
+        <div class="card">
+            <img src="images/test.jpg">
+            <h3>Islamic Book</h3>
+            <p class="price">৳500</p>
+            <button class="btn" onclick="orderBook('Islamic Book','500')">
+                Order on WhatsApp
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="images/test.jpg">
+            <h3>Fiction Book</h3>
+            <p class="price">৳400</p>
+            <button class="btn" onclick="orderBook('Fiction Book','400')">
+                Order on WhatsApp
+            </button>
+        </div>
+
+        <div class="card">
+            <img src="images/test.jpg">
+            <h3>Kids Book</h3>
+            <p class="price">৳300</p>
+            <button class="btn" onclick="orderBook('Kids Book','300')">
+                Order on WhatsApp
+            </button>
+        </div>
+
+    </div>
+
+<script>
+    function orderBook(bookName, price) {
+        var phone = "8801645484711"; 
+        var message = "Hello Bookbazar, I want to order " + bookName + " (৳" + price + ")";
+        var url = "https://api.whatsapp.com/send?phone=" + phone + "&text=" + encodeURIComponent(message);
+        window.open(url, "_self");
+    }
+</script>
+
+</body>
+</html>
